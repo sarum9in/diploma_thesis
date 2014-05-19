@@ -1,0 +1,87 @@
+\documentclass[11pt]{report}
+\usepackage{xltxtra}
+\usepackage{polyglossia}
+\setdefaultlanguage[spelling=modern]{russian}
+%\setmainfont[Mapping=tex-text]{DejaVu Sans}
+%\setmainfont[Mapping=tex-text]{Liberation Sans}
+\setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+\setmainfont[Mapping=tex-text]{Linux Libertine O}
+%\setmonofont[Mapping=tex-text]{Liberation Mono}
+
+\usepackage{etoolbox}
+
+\usepackage{verbatim}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{url}
+
+\usepackage{indentfirst}
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage[a4paper]{geometry}
+\geometry{left=25mm}
+\geometry{right=25mm}
+\geometry{top=25mm}
+\geometry{bottom=15mm}
+
+\usepackage{listings}
+
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j
+  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t
+  \do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D
+  \do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N
+  \do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X
+  \do\Y\do\Z}
+
+\setlength{\parindent}{10mm}
+\makeatletter
+% Переопределение команды секции
+\renewcommand{\section}{\@startsection{section}{1}%
+{\parindent}{3.25ex plus 1ex minus .2ex}%
+{1.5ex plus .2ex}{\bfseries\large\uppercase}}
+
+% Переопределение команды подсекции
+\renewcommand{\subsection}{\@startsection{subsection}{2}%
+{\parindent}{3.25ex plus 1ex minus .2ex}%
+{1.5ex plus .2ex}{\bfseries}}
+\makeatother
+
+%\newcommand{\msection}[1]{\section[#1]{#1}}
+%\newcommand{\msection}[1]{\section[#1]{\uppercase{#1}}}
+
+\newcommand{\includepicture}[3]{
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+%\large{\textbf{#2}}
+\includegraphics[width=#3\textwidth]{#1}
+\end{center}
+\caption{#2}
+\end{figure}
+}
+
+\lstset{ %
+language=C++,                   % the language of the code
+basicstyle=\tiny,               % the size of the fonts that are used for the code
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+stepnumber=2,                   % the step between two line-numbers. If it's 1, each line
+                                % will be numbered
+numbersep=5pt,                  % how far the line-numbers are from the code
+%backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,                   % adds a frame around the code
+tabsize=2,                      % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                % also try caption instead of title
+escapeinside={\%*}{*)},         % if you want to add a comment within your code
+morekeywords={*,...}            % if you want to add more keywords to the set
+}

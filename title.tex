@@ -1,0 +1,49 @@
+\begin{titlepage}
+\newpage
+
+\begin{center}
+МИНОБРНАУКИ РОССИИ\\*
+Федеральное государственное бюджетное образовательное\\*
+учреждение высшего профессионального образования\\*
+«Ижевский государственный технический университет им. М. Т. Калашникова»\\*
+Факультет «Информатика и вычислительная техника»\\*
+кафедра «Программное обеспечение»
+\vspace{1cm}
+\end{center}
+
+\vspace{8em}
+
+\begin{center}
+\titletext
+\end{center}
+
+\vspace{2.5em}
+
+\ifdefmacro{\myvariant}{
+    \begin{center}
+        Вариант №\myvariant
+    \end{center}
+}{
+    \vspace{3em}
+}
+\vspace{6em}
+
+\begin{flushleft}
+    Выполнил\\*
+    Студент группы \mygroup \hfill \myname\\*
+    \vspace{1.5em}
+\ifdefmacro{\myteacherdegree}{
+    Принял \\*
+    \myteacherdegree \hfill \myteacher\\*
+}{
+    Принял \hfill \myteacher\\*
+}
+\end{flushleft}
+
+\vspace{\fill}
+
+\begin{center}
+    Ижевск \myyear
+\end{center}
+
+\end{titlepage}
