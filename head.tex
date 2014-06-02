@@ -8,8 +8,16 @@
 \setmainfont[Mapping=tex-text]{Linux Libertine O}
 %\setmonofont[Mapping=tex-text]{Liberation Mono}
 
+% dot2tex
+\usepackage[x11names, rgb]{xcolor}
+%\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+\usepackage{amsmath}
+
 \usepackage{etoolbox}
 
+\usepackage{caption}
 \usepackage{verbatim}
 \usepackage{tabularx}
 \usepackage{float}
@@ -53,15 +61,23 @@
 %\newcommand{\msection}[1]{\section[#1]{\uppercase{#1}}}
 
 \newcommand{\includepicture}[3]{
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-%\large{\textbf{#2}}
-\includegraphics[width=#3\textwidth]{#1}
-\end{center}
-\caption{#2}
-\end{figure}
+\noindent
+\begin{minipage}{#3\linewidth}
+\makebox[#3\linewidth]{
+    \includegraphics[width=#3\linewidth]{#1}
 }
+\captionof{figure}{#2}
+\end{minipage}
+}
+
+%\begin{figure}[H]
+%\centering
+%\leavevmode
+%\large{\textbf{#2}}
+%\includegraphics[width=#3\textwidth]{#1}
+%\caption{#2}
+%\end{figure}
+%}
 
 \lstset{ %
 language=C++,                   % the language of the code

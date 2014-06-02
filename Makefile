@@ -1,4 +1,4 @@
-%.pdf: %.tex $(wildcard *.tex) $(addsuffix .ps,$(basename $(wildcard *.dot)))
+%.pdf: %.tex $(wildcard *.tex) $(addsuffix .dot.tex,$(basename $(wildcard *.dot)))
 	xelatex $<
 	xelatex $<
 
@@ -7,10 +7,12 @@ all: main.pdf
 open: main.pdf
 	xdg-open $<
 
-%.ps: %.dot
-	dot -Tps:cairo -o$@ $<
+DOT2TEXFLAGS=--figonly --format=tikz
+
+%.dot.tex: %.dot
+	dot2tex $(DOT2TEXFLAGS) --output=$@ $<
 
 clean:
-	$(RM) *.ps *.pdf *.aux *.log *.toc *.nav *.snm *.out
+	$(RM) *.ps *.pdf *.aux *.log *.toc *.nav *.snm *.out *.dot.tex
 
 .PHONY: open clean

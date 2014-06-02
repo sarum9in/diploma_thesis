@@ -1,0 +1,65 @@
+digraph arch
+{
+    // users
+    {
+        user[label="Пользователь"];
+        //admin[label="Администратор"];
+    }
+    // frontend
+    {
+        web[label="WEB-сервис"];
+        //adminka[label="АдминКа"];
+    }
+    // backend
+    {
+        archive[label="Архив задач"];
+        repository[label="Репозиторий"];
+        dcs[label="HUB ресурсов"];
+        worker[label="Обработчик"];
+        statement_provider[label="Сервис условий"];
+    }
+    // repository
+    {
+        edge[style=bold];
+        // repository get data
+        {
+            edge[dir=back];
+            worker->repository[color="blue",fontcolor="blue",label="тестер"];
+            {
+                edge[color="#8b00ff",fontcolor="#8b00ff",label="условие"];
+                web->statement_provider;
+                statement_provider->repository;
+            }
+        }
+        // repository put data
+        {
+            archive->repository[color="blue",fontcolor="blue",label="тестер"];
+            archive->repository[color="#8b00ff",fontcolor="#8b00ff",label="условие"];
+        }
+    }
+    // problem upload flow
+    {
+        edge[style=bold,label="задача"];
+        {
+            edge[color="#34c924",fontcolor="#34c924"];
+            user->web;
+            web->archive;
+            //admin->adminka;
+            //adminka->archive;
+            web->archive[dir=back,label="информация о задаче"];
+        }
+    }
+    // submit flow
+    {
+        edge[color="red",fontcolor="red",label="submit"];
+        user->web;
+        web->worker;
+        web->worker[dir=back,color="#cd5c5c",fontcolor="#cd5c5c",label="result"];
+    }
+    // auxiliary requests
+    {
+        edge[style=dotted];
+        web->dcs[dir=back];//,color="sienna",fontcolor="sienna",label="URL"];
+        worker->dcs[color="brown",fontcolor="brown",label="регистрация"];
+    }
+}
