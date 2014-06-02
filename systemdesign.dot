@@ -7,14 +7,14 @@ digraph arch
     }
     // frontend
     {
-        web[label="WEB-сервис"];
+        web[label="WEB-интерфейс"];
         //adminka[label="АдминКа"];
     }
     // backend
     {
         archive[label="Архив задач"];
         repository[label="Репозиторий"];
-        dcs[label="HUB ресурсов"];
+        dcs[label="Контроллер ресурсов"];
         worker[label="Обработчик"];
         statement_provider[label="Сервис условий"];
     }
