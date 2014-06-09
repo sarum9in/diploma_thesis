@@ -15,6 +15,8 @@
 \usetikzlibrary{snakes,arrows,shapes}
 \usepackage{amsmath}
 
+\usepackage{titlesec}
+
 \usepackage{etoolbox}
 
 \usepackage{caption}
@@ -47,9 +49,20 @@
 \setlength{\parindent}{10mm}
 \makeatletter
 % Переопределение команды секции
-\renewcommand{\section}{\@startsection{section}{1}%
-{\parindent}{3.25ex plus 1ex minus .2ex}%
-{1.5ex plus .2ex}{\bfseries\large\uppercase}}
+%\renewcommand{\chapter}{\@startchapter{chapter}{1}%
+%{\parindent}{3.25ex plus 1ex minus .2ex}%
+%{1.5ex plus .2ex}{\bfseries\large\uppercase}}
+
+\titleformat{\chapter}[hang]{\normalfont\Large\centering}{\thechapter.\ }{0pt}{\Large\uppercase}
+%\titleformat{\section}[hang]{\normalfont\Large\centering}{\thesection.\ }{0pt}{\Large\uppercase}
+
+\AtBeginDocument{
+\renewcommand{\contentsname}{СОДЕРЖАНИЕ}
+}
+
+%\renewcommand{\section}{\@startsection{section}{1}%
+%{\parindent}{3.25ex plus 1ex minus .2ex}%
+%{1.5ex plus .2ex}{\bfseries\large\uppercase}}
 
 % Переопределение команды подсекции
 \renewcommand{\subsection}{\@startsection{subsection}{2}%
