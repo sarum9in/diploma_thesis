@@ -1,0 +1,7 @@
+msc {
+    user, archive, repository;
+
+    user->archive[label="problem"];
+    archive->repository[label="packages"];
+    user<<archive[label="info"];
+}

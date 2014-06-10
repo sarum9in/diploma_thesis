@@ -1,0 +1,9 @@
+msc {
+    user, web, service, repository;
+
+    user->web[label="statement request"];
+    web->service[label="redirect"];
+    service->repository[label="fetch"];
+    service<<repository[label="statement source"];
+    user<<service[label="statement"];
+}
