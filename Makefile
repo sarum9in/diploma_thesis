@@ -1,4 +1,4 @@
-%.pdf: %.tex $(wildcard *.tex) $(addsuffix .dot.tex,$(basename $(wildcard *.dot))) $(addsuffix .eps,$(basename $(wildcard *.msc)))
+%.pdf: %.tex $(wildcard *.tex) $(addsuffix .dot.tex,$(basename $(wildcard *.dot))) $(addsuffix .sh.tex,$(basename $(wildcard *.sh))) $(addsuffix .eps,$(basename $(wildcard *.msc)))
 	xelatex $<
 	xelatex $<
 
@@ -16,6 +16,9 @@ DOT2TEXFLAGS=--figonly --format=tikz
 	mscgen -T eps -o $@ -i $<
 
 clean:
-	$(RM) *.ps *.pdf *.aux *.log *.toc *.nav *.snm *.out *.dot.tex
+	$(RM) *.ps *.pdf *.aux *.log *.toc *.nav *.snm *.out *.dot.tex *.sh.tex *.eps *.blg *.bbl
+
+%.sh.tex: %.sh
+	./$< >$@
 
 .PHONY: open clean
