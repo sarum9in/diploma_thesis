@@ -16,6 +16,8 @@
 \usepackage{float}
 \usepackage{url}
 
+\usepackage{textpos}
+
 \usepackage{hyperref}
 
 \usepackage{indentfirst}
@@ -33,6 +35,11 @@
 
 \newenvironment{sframe}[2]{\section{#1}\begin{frame}[label=#2]{#1}}{\end{frame}}
 
+\addtobeamertemplate{headline}{}{
+\begin{textblock*}{100mm}(.015\textwidth,0.2cm)
+\includegraphics[height=1cm,width=1cm]{logo}
+\end{textblock*}}
+
 \begin{document}
     \title[BACS]{BACS ACM Contest System}
     \author[Филиппов]{А.~Филиппов\inst{1}}
@@ -41,7 +48,7 @@
         \inst{1}
         Ижевский государственный технический университет имени М.Т.~Калашникова
     }
-    \frame{\titlepage}
+    %\frame{\titlepage}
 
     \input beamertitle.tex
 

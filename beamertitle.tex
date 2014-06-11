@@ -1,3 +1,57 @@
 \begin{frame}
-    TODO титульный лист в соответстии с требованиями
+
+\newcommand{\mytitlefont}{\fontsize{6pt}{7.2}\selectfont}
+
+\begin{center}
+\mytitlefont
+МИНОБРНАУКИ РОССИИ\\*
+Федеральное государственное бюджетное образовательное\\*
+учреждение высшего профессионального образования\\*
+«Ижевский государственный технический университет им. М. Т. Калашникова»\\*
+Факультет «Информатика и вычислительная техника»\\*
+кафедра «Программное обеспечение»
+\vspace{1cm}
+\end{center}
+
+\vspace{2em}
+
+\mytitlefont
+\begin{center}
+\mytitlefont
+\titletext
+\end{center}
+
+\vspace{2.5em}
+
+\ifdefmacro{\myvariant}{
+    \begin{center}
+        \mytitlefont
+        Вариант №\myvariant
+    \end{center}
+}{
+    \vspace{3em}
+}
+\vspace{2em}
+
+\begin{flushleft}
+    \mytitlefont
+    Выполнил\\*
+    Студент группы \mygroup \hfill \myname\\*
+    \vspace{1.5em}
+\ifdefmacro{\myteacherdegree}{
+    \myteacherlabel \\*
+    \myteacherdegree \hfill \myteacher\\*
+}{
+    \mytitlefont
+    \myteacherlabel \hfill \myteacher\\*
+}
+\end{flushleft}
+
+\vspace{\fill}
+
+\begin{center}
+    \mytitlefont
+    Ижевск \myyear
+\end{center}
+
 \end{frame}
