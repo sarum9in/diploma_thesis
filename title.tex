@@ -30,9 +30,14 @@
 \vspace{6em}
 
 \begin{flushleft}
-    Выполнил\\*
-    Студент группы \mygroup \hfill \myname\\*
+    \mylabel\\*
+    студент группы \mygroup \hfill \myname\\*
     \vspace{1.5em}
+\ifdefmacro{\myverifier}{
+    Нормоконтролер \hfill \myverifier\\*
+    \vspace{1.5em}
+}{
+}
 \ifdefmacro{\myteacherdegree}{
     \myteacherlabel\\*
     \myteacherdegree \hfill \myteacher\\*
