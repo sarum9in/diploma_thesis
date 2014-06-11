@@ -33,16 +33,22 @@
     \mylabel\\*
     студент группы \mygroup \hfill \myname\\*
     \vspace{1.5em}
-\ifdefmacro{\myverifier}{
-    Нормоконтролер \hfill \myverifier\\*
-    \vspace{1.5em}
-}{
-}
 \ifdefmacro{\myteacherdegree}{
     \myteacherlabel\\*
     \myteacherdegree \hfill \myteacher\\*
 }{
     \myteacherlabel \hfill \myteacher\\*
+}
+\vspace{1.5em}
+\ifdefmacro{\myverifier}{
+    Нормоконтролер \hfill \myverifier\\*
+    \vspace{1.5em}
+}{
+}
+\ifdefmacro{\mydepartmenthead}{
+    \mydepartmentheadlabel\\*
+    \mydepartmentheaddegree \hfill \mydepartmenthead
+}{
 }
 \end{flushleft}
 

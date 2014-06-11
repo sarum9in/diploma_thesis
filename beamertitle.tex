@@ -13,7 +13,7 @@
 \vspace{1cm}
 \end{center}
 
-\vspace{2em}
+\vspace{1em}
 
 \mytitlefont
 \begin{center}
@@ -38,17 +38,22 @@
     \mylabel\\*
     студент группы \mygroup \hfill \myname\\*
     \vspace{1.5em}
+\ifdefmacro{\myteacherdegree}{
+    \myteacherlabel\\*
+    \myteacherdegree \hfill \myteacher\\*
+}{
+    \myteacherlabel \hfill \myteacher\\*
+}
+\vspace{1.5em}
 \ifdefmacro{\myverifier}{
     Нормоконтролер \hfill \myverifier\\*
     \vspace{1.5em}
 }{
 }
-\ifdefmacro{\myteacherdegree}{
-    \myteacherlabel \\*
-    \myteacherdegree \hfill \myteacher\\*
+\ifdefmacro{\mydepartmenthead}{
+    \mydepartmentheadlabel\\*
+    \mydepartmentheaddegree \hfill \mydepartmenthead
 }{
-    \mytitlefont
-    \myteacherlabel \hfill \myteacher\\*
 }
 \end{flushleft}
 
