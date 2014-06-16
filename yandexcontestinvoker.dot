@@ -3,11 +3,13 @@ digraph sandbox
     rankdir="LR";
 
     worker[label="Обработчик"];
+    tester[label="Тестер"];
     sandbox[label="Песочница"];
     os[label="Операционная система"];
 
-    worker->sandbox[label="параметры"];
+    worker->tester[label="параметры"];
+    tester->sandbox[label="параметры"];
     sandbox->os[label="запуск процесса"];
     sandbox->os[label="результат",dir=back];
-    worker->sandbox[label="результат",dir=back];
+    tester->sandbox[label="результат",dir=back];
 }
