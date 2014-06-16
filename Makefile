@@ -7,6 +7,9 @@ all: main.pdf presentation.pdf
 open: main.pdf
 	xdg-open $<
 
+popen: presentation.pdf
+	xdg-open $<
+
 DOT2TEXFLAGS=--figonly --format=tikz
 
 %.dot.tex: %.dot
