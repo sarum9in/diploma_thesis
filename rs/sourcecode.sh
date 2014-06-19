@@ -2,7 +2,7 @@
 
 gen()
 {
-    find "../$1" -type f -name '*.?pp' -o -name '*.py' | sed -r 's|.*|\\lstinputlisting{&}|'
+    find "../../$1" -type f -name '*.?pp' -o -name '*.py' | sed -r 's|^\.\./(.*)$|\\lstinputlisting{\1}|'
 }
 
 genp()

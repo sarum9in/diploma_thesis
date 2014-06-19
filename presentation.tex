@@ -25,6 +25,8 @@
 \usepackage{algorithm}
 \usepackage{algorithmic}
 
+\usepackage{graphicx}
+
 %\setbeamertemplate{caption}[numbered]
 \setbeamertemplate{footline}[frame number]
 
@@ -37,7 +39,7 @@
 
 \addtobeamertemplate{headline}{}{
 \begin{textblock*}{100mm}(.015\textwidth,0.2cm)
-\includegraphics[height=1cm,width=1cm]{logo}
+\includegraphics[height=1cm,width=1cm]{rs/logo}
 \end{textblock*}}
 
 \begin{document}
@@ -80,11 +82,12 @@
     \end{sframe}
 
     \begin{sframe}{Архитектура системы}{systemdesign}
-        \begin{figure}
-            \resizebox{\columnwidth}{!}{
-                \input systemdesign.dot
-            }
-        \end{figure}
+        \begin{block}{}
+            \begin{figure}[H]
+                \centering
+                \includegraphics{rs/systemdesign}
+            \end{figure}
+        \end{block}
     \end{sframe}
 
     \begin{sframe}{Система распределения нагрузки}{dcs}
@@ -95,7 +98,7 @@
         \end{itemize}
         \begin{figure}
             \centering
-            \includegraphics[width=\columnwidth]{bunsandcs}
+            \includegraphics[width=\columnwidth]{rs/bunsandcs}
         \end{figure}
     \end{sframe}
 
@@ -107,7 +110,7 @@
         \end{itemize}
         \begin{figure}
             \centering
-            \includegraphics[width=\columnwidth]{bunsanpm}
+            \includegraphics[width=\columnwidth]{rs/bunsanpm}
         \end{figure}
     \end{sframe}
 
@@ -121,7 +124,7 @@
         \end{itemize}
         \begin{figure}
             \centering
-            \includegraphics[width=\columnwidth]{bacsarchive}
+            \includegraphics[width=\columnwidth]{rs/bacsarchive}
         \end{figure}
     \end{sframe}
 
@@ -143,7 +146,7 @@
         \end{itemize}
         \begin{figure}
             \centering
-            \includegraphics[width=\columnwidth]{bacsstatementprovider}
+            \includegraphics[width=\columnwidth]{rs/bacsstatementprovider}
         \end{figure}
     \end{sframe}
 
@@ -155,7 +158,7 @@
         \end{itemize}
         \begin{figure}
             \resizebox{\columnwidth}{!}{
-                \input yandexcontestinvoker.dot
+                \input rs/yandexcontestinvoker.dot
             }
         \end{figure}
     \end{sframe}

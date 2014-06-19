@@ -1,9 +1,0 @@
-msc {
-    client, dcs[label="manager"], service;
-
-    service->dcs[label="register"];
-    ...;
-    client->dcs[label="resource query"];
-    client<<dcs[label="resource uri"];
-    client->service[label="request"];
-}

@@ -1,4 +1,4 @@
-%.pdf: %.tex $(wildcard *.tex) $(addsuffix .dot.tex,$(basename $(wildcard *.dot))) $(addsuffix .sh.tex,$(basename $(wildcard *.sh))) $(addsuffix .eps,$(basename $(wildcard *.msc)))
+%.pdf: %.tex $(wildcard *.tex) resources
 	xelatex $<
 	xelatex $<
 
@@ -10,18 +10,11 @@ open: main.pdf
 popen: presentation.pdf
 	xdg-open $<
 
-DOT2TEXFLAGS=--figonly --format=tikz
-
-%.dot.tex: %.dot
-	dot2tex $(DOT2TEXFLAGS) --output=$@ $<
-
-%.eps: %.msc
-	mscgen -T eps -o $@ -i $<
+resources:
+	$(MAKE) -C rs
 
 clean:
-	$(RM) *.ps *.pdf *.aux *.log *.toc *.nav *.snm *.out *.dot.tex *.sh.tex *.eps *.blg *.bbl
+	$(RM) *.pdf *.aux *.log *.toc *.nav *.snm *.out *.blg *.bbl
+	$(MAKE) -C rs clean
 
-%.sh.tex: %.sh
-	./$< >$@
-
-.PHONY: open clean
+.PHONY: open clean resources
