@@ -1,7 +1,7 @@
 input cfg/uml;
 
 beginfig(1)
-    Component.client("Web")();
+    Component.client("External client")();
     Component.manager("Manager")();
     Component.service("Worker")();
 
