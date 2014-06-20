@@ -1,0 +1,10 @@
+msc {
+    client, dcs[label="manager"], worker;
+
+    worker->dcs[label="register"];
+    ...;
+    client->dcs[label="resource query"];
+    client<<dcs[label="resource uri"];
+    client->worker[label="request"];
+    client<<worker[label="response"];
+}
