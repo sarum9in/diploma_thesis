@@ -1,6 +1,9 @@
+XELATEX = xelatex
+XELATEXFLAGS = -halt-on-error
+
 %.pdf: %.tex $(wildcard *.tex) resources
-	xelatex $<
-	xelatex $<
+	$(XELATEX) $(XELATEXFLAGS) $<
+	$(XELATEX) $(XELATEXFLAGS) $<
 
 all: main.pdf presentation.pdf
 
