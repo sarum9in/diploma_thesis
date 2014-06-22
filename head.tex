@@ -2,17 +2,12 @@
 \usepackage{xltxtra}
 \usepackage{polyglossia}
 \setdefaultlanguage[spelling=modern]{russian}
-%\setmainfont[Mapping=tex-text]{DejaVu Sans}
-%\setmainfont[Mapping=tex-text]{Liberation Sans}
-\setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
-\setmainfont[Mapping=tex-text]{Linux Libertine O}
-%\setmonofont[Mapping=tex-text]{Liberation Mono}
+\setmonofont[Mapping=tex-text]{Liberation Mono}
+\setmainfont[Mapping=tex-text]{Liberation Serif}
 
 \input dot2tex
 
 \usepackage[titletoc]{appendix}
-
-\usepackage{titlesec}
 
 \usepackage{etoolbox}
 
@@ -23,17 +18,12 @@
 \usepackage{url}
 
 \usepackage{indentfirst}
+\setlength{\parindent}{1.5cm}
 
 \usepackage{algorithm}
 \usepackage{algorithmic}
 
-\usepackage[a4paper]{geometry}
-\geometry{left=25mm}
-\geometry{right=25mm}
-\geometry{top=25mm}
-\geometry{bottom=15mm}
-
-\usepackage{listings}
+\input style
 
 \expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks
   \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j
@@ -43,57 +33,10 @@
   \do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X
   \do\Y\do\Z}
 
-\setlength{\parindent}{10mm}
-\makeatletter
-% Переопределение команды секции
-%\renewcommand{\chapter}{\@startchapter{chapter}{1}%
-%{\parindent}{3.25ex plus 1ex minus .2ex}%
-%{1.5ex plus .2ex}{\bfseries\large\uppercase}}
-
-\titleformat{\chapter}[hang]{\normalfont\Large\centering}{\thechapter.\ }{0pt}{\Large\uppercase}
-%\titleformat{\section}[hang]{\normalfont\Large\centering}{\thesection.\ }{0pt}{\Large\uppercase}
-
-\AtBeginDocument{
-\renewcommand{\contentsname}{СОДЕРЖАНИЕ}
-}
-
-\renewcommand{\appendixname}{ПРИЛОЖЕНИЕ}
-
-%\renewcommand{\section}{\@startsection{section}{1}%
-%{\parindent}{3.25ex plus 1ex minus .2ex}%
-%{1.5ex plus .2ex}{\bfseries\large\uppercase}}
-
-% Переопределение команды подсекции
-\renewcommand{\subsection}{\@startsection{subsection}{2}%
-{\parindent}{3.25ex plus 1ex minus .2ex}%
-{1.5ex plus .2ex}{\bfseries}}
-\makeatother
-
-%\newcommand{\msection}[1]{\section[#1]{#1}}
-%\newcommand{\msection}[1]{\section[#1]{\uppercase{#1}}}
-
-\newcommand{\includepicture}[3]{
-\noindent
-\begin{minipage}{#3\linewidth}
-\makebox[#3\linewidth]{
-    \includegraphics[width=#3\linewidth]{#1}
-}
-\captionof{figure}{#2}
-\end{minipage}
-}
-
-%\begin{figure}[H]
-%\centering
-%\leavevmode
-%\large{\textbf{#2}}
-%\includegraphics[width=#3\textwidth]{#1}
-%\caption{#2}
-%\end{figure}
-%}
-
+\usepackage{listings}
 \lstset{ %
 language=C++,                   % the language of the code
-basicstyle=\tiny,               % the size of the fonts that are used for the code
+basicstyle=\ttfamily\footnotesize,% the size of the fonts that are used for the code
 numbers=left,                   % where to put the line-numbers
 numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
 stepnumber=2,                   % the step between two line-numbers. If it's 1, each line
