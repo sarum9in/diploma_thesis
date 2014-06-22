@@ -41,6 +41,8 @@
 \renewcommand*{\thechapter}{\arabic{chapter}.}
 \renewcommand*{\thesection}{\thechapter\arabic{section}.}
 \renewcommand*{\thesubsection}{\thesection\arabic{subsection}.}
+\renewcommand*{\thesubsubsection}{\thesubsection\arabic{subsubsection}.}
+\renewcommand*{\theparagraph}{\thesubsubsection\arabic{paragraph}.}
 \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 \renewcommand{\theequation}{\arabic{equation}}
 
@@ -76,12 +78,21 @@
 
 \titleformat{\subsubsection}[hang]
     {\normalfont}
-    {\thesubsubsection.} % TODO ???
+    {\thesubsubsection}
     {1em}{#1}
 \titlespacing{\subsubsection}
     {1.5cm} %left
     {1em} %before
     {1em} %after
+
+\titleformat{\paragraph}[runin]
+    {\normalfont}
+    {\theparagraph}
+    {1em}{#1}
+\titlespacing{\paragraph}
+    {1.5cm} %left
+    {1em} %before
+    {1ex} %after
 
 %==================
 % Оглавление
