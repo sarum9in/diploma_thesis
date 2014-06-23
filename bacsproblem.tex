@@ -1,4 +1,5 @@
 \section{Задача}
+\label{bacsproblem}
 Задача -- структурированный набор файлов,
 которые позволяют в автоматическом режиме
 \begin{itemize}
@@ -22,3 +23,144 @@
 \subsection{Чекер}
 
 \subsection{Интерактор}
+
+\subsection{Формат simple0}
+
+\subsubsection{Структура директории}
+\begin{itemize}
+    \item файл \textbf{format} содержит строку \textbf{bacs/problem/single\#simple0},
+        указывающую на формат задачи;
+    \item файл \textbf{config.ini} содержит настройки проверки и базовую информацию;
+    \item директория \textbf{checker} отвечает за чекер;
+    \item директория \textbf{interactor} отвечает за интерактор;
+    \item директория \textbf{tests} отвечает за тесты;
+    \item директория \textbf{misc} используется для хранения данных,
+        используемых при разработке задачи,
+        но не используемых системой.
+\end{itemize}
+
+\subsubsection{config.ini}
+Содержит секции
+\begin{itemize}
+    \item \textbf{info}
+        \begin{itemize}
+            \item \textbf{name} -- имя задачи;
+            \item \textbf{authors} -- список авторов, разделённый пробелами;
+            \item \textbf{maintainers} -- список ответственных, разделённый пробелами;
+        \end{itemize}
+    \item \textbf{resource\_limits}, где указываются ограничения ресурсов при проверке:
+        \begin{itemize}
+            \item \textbf{time} время CPU;
+            \item \textbf{memory} оперативная память;
+            \item \textbf{output} количество выводимых данных;
+            \item \textbf{real\_time} реальное время;
+        \end{itemize}
+    \item \textbf{files}, содержащую настройки перенаправления ввода-вывода:
+        \begin{itemize}
+            \item \textbf{stdin} указывает имя файла,
+                который используется вместо стандартного потока ввода;
+            \item \textbf{stdout} указывает имя файла,
+                который используется вместо стандартного потока вывода;
+            \item \textbf{stderr} указывает имя файла,
+                который используется вместо стандартного потока ошибок;
+        \end{itemize}
+    \item \textbf{tests}, содержащую дополнительную информацию о тестах:
+        \begin{itemize}
+            \item переменные, начинающиеся с префикса \textbf{group\_}
+                содержат списки тестов, составляющих указанную группу.
+                К примеру \textbf{group\_pre} описывает группу \textbf{pre}.
+        \end{itemize}
+\end{itemize}
+
+Пример:
+\begin{verbatim}
+[info]
+name = A + B
+maintainers = harmonius
+
+[resource_limits]
+time = 1s
+memory = 1024MiB
+\end{verbatim}
+
+\subsubsection{Чекер и интерактор}
+Директория содержит
+\begin{itemize}
+    \item файл \textbf{config.ini};
+    \item файлы исходного кода утилиты.
+\end{itemize}
+
+Файл \textbf{config.ini} состоит из секций
+\begin{itemize}
+    \item \textbf{build}
+        \begin{itemize}
+            \item \textbf{builder} -- идентификатор сборщика утилиты;
+        \end{itemize}
+    \item \textbf{utility}
+        \begin{itemize}
+            \item \textbf{call} -- обёртка для вызова утилиты;
+        \end{itemize}
+\end{itemize}
+
+Поддерживаемые сборщики и их настройки:
+\begin{itemize}
+    \item \textbf{single}
+        \begin{itemize}
+            \item \textbf{source} -- главный исходный файл;
+            \item \textbf{libs} -- список требуемых библиотек.
+        \end{itemize}
+\end{itemize}
+
+Пример файла \textbf{config.ini}:
+\begin{verbatim}
+[build]
+builder = single
+source = check.cpp
+libs = Lopatin
+
+[utility]
+call = in_out_hint
+\end{verbatim}
+
+\subsubsection{Условие}
+Условие представляется в виде нескольких версий,
+которые могут отличаться языком и форматом.
+Каждая версия условия указывается в своём \textbf{.ini}-файле
+в корне директории условия.
+
+Конфигурационный файл версии условия:
+\begin{itemize}
+    \item \textbf{info}
+        \begin{itemize}
+            \item \textbf{lang} -- язык версии;
+        \end{itemize}
+    \item \textbf{build}
+        \begin{itemize}
+            \item \textbf{builder} -- сборщик версии условия.
+        \end{itemize}
+\end{itemize}
+
+Поддерживаемые сборщики и их настройки:
+\begin{itemize}
+    \item \textbf{copy} -- прямое копирование файлов,
+        извлекает формат из суффикса главного файла.
+        Опции:
+        \begin{itemize}
+            \item \textbf{source} -- основной исходный файл;
+        \end{itemize}
+    \item \textbf{pdflatex} -- создание pdf-файла при помощи утилиты pdflatex.
+        Опции:
+        \begin{itemize}
+            \item \textbf{source} -- основной исходный файл.
+        \end{itemize}
+\end{itemize}
+
+Пример конфигурационного файла:
+\begin{verbatim}
+[info]
+lang = en
+
+[build]
+builder = copy
+source = problem.html
+\end{verbatim}
