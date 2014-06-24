@@ -1,0 +1,12 @@
+msc {
+    user, web, dcs, worker;
+
+    worker->dcs[label="Register worker"];
+    ...;
+    user->web[label="Send solution"];
+    web->dcs[label="Request worker"];
+    web<<dcs[label="Return worker's address"];
+    web->worker[label="Send testing task"];
+    web<<worker[label="Return testing result"];
+    user<<web[label="Display solution's result"];
+}
