@@ -1,51 +1,78 @@
 #!/bin/sh -e
 
+str()
+{
+    awk '{
+            gsub("^\\.\\./", "");
+
+            x = $0; gsub("^\\.\\./", "", x);
+            gsub("bunsan/bacs", "bacs", x);
+            gsub("bacs/repository/bacs/system/", "", x);
+            gsub("bacs/problem_plugins", "bacs/problem", x);
+            gsub(".*/include/", "", x);
+
+            gsub("_", "\\_", x);
+            print "\\lstinputlisting[title="x"]{"$0"}";
+        }'
+}
+
 gen()
 {
-    find "../../$1" -type f -name '*.?pp' -o -name '*.py' | sed -r 's|^\.\./(.*)$|\\lstinputlisting{\1}|'
+    for i
+    do
+        find "../../$i" -type f -name '*.hpp' -o -name '*.py' -o -name '*.proto' | \
+            grep -v /detail/ | \
+            grep -v /web/ | \
+            grep -v /compatibility/ | \
+            egrep -v '/none_dcs\.py$' | \
+            egrep -v '/common\.hpp$' | \
+            egrep -v '/pb/convert\.hpp$' | \
+            egrep -v '/problem/split\.hpp$' | \
+            egrep -v '/error\.hpp$' | \
+            str
+    done
 }
 
 genp()
 {
     gen "$1/include"
-    gen "$1/src"
+}
+
+secraw()
+{
+    cmd="$1"
+    section="$2"
+    shift 2
+
+    echo '\section{'"$(echo "$section" | sed -r 's|_|\\_|g')"'}'
+    echo
+    "$cmd" "$@"
+    echo
+}
+
+sec()
+{
+    secraw gen "$@"
+}
+
+secp()
+{
+    secraw genp "$@"
 }
 
 echo '\chapter{Исходный код}'
 echo
-echo '\section{bunsan::worker}'
-echo
-gen bunsan/worker_python/src
-echo
-echo '\section{bunsan::pm}'
-echo
-genp bunsan/pm
-echo
-echo '\section{bacs::archive}'
-echo
-genp bunsan/bacs/archive
-echo
-echo '\section{bacs::problem}'
-echo
-genp bunsan/bacs/problem
-echo
-echo '\section{bacs::problem::single}'
-echo
-genp bunsan/bacs/problem_plugins/single
-echo
-echo '\section{bacs::system}'
-echo
-genp bunsan/bacs/system
-echo
-echo '\section{bacs::repository}'
-echo
-gen bunsan/bacs/repository/bacs/system
-echo
-echo '\section{yandex::contest::system}'
-echo
-genp yandex.contest/system
-echo
-echo '\section{yandex::contest::invoker}'
-echo
-genp yandex.contest/invoker
-echo
+
+sec bunsan::worker bunsan/worker_python/src
+
+secp bunsan::pm bunsan/pm
+
+secp bacs::archive bunsan/bacs/archive
+
+secp bacs::statement_provider bunsan/bacs/statement_provider
+
+secp bacs::problem bunsan/bacs/problem
+
+secp bacs::problem::single bunsan/bacs/problem_plugins/single
+
+sec bacs::repository bunsan/bacs/repository/bacs/system
