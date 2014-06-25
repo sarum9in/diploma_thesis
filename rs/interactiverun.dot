@@ -1,0 +1,8 @@
+digraph InteractiveRun
+{
+    interactor[label="Интерактор"];
+    solution[label="Решение"];
+
+    interactor->solution;
+    solution->interactor;
+}
