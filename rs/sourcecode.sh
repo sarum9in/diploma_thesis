@@ -29,6 +29,7 @@ gen()
             egrep -v '/pb/convert\.hpp$' | \
             egrep -v '/problem/split\.hpp$' | \
             egrep -v '/error\.hpp$' | \
+            egrep -v '/config\.hpp$' | \
             str
     done
 }
