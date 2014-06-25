@@ -39,11 +39,6 @@
 }
 \renewcommand{\appendixname}{Приложение}
 
-\renewcommand*{\thechapter}{\arabic{chapter}.}
-\renewcommand*{\thesection}{\thechapter\arabic{section}.}
-\renewcommand*{\thesubsection}{\thesection\arabic{subsection}.}
-\renewcommand*{\thesubsubsection}{\thesubsection\arabic{subsubsection}.}
-\renewcommand*{\theparagraph}{\thesubsubsection\arabic{paragraph}.}
 \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 \renewcommand{\theequation}{\arabic{equation}}
 
@@ -51,7 +46,7 @@
 %\let\appendix\chapter
 \titleformat{\chapter}[hang]
     {\normalfont\center}
-    {\thechapter}
+    {\thechapter.}
     {1em}
     {\uppercase{#1}}
 \titlespacing{\chapter}
@@ -61,7 +56,7 @@
 
 \titleformat{\section}[hang]
     {\normalfont}
-    {\thesection}
+    {\thesection.}
     {1em}{#1}
 \titlespacing{\section}
     {1.5cm} %left
@@ -70,7 +65,7 @@
 
 \titleformat{\subsection}[hang]
     {\normalfont}
-    {\thesubsection}
+    {\thesubsection.}
     {1em}{#1}
 \titlespacing{\subsection}
     {1.5cm} %left
@@ -79,7 +74,7 @@
 
 \titleformat{\subsubsection}[hang]
     {\normalfont}
-    {\thesubsubsection}
+    {\thesubsubsection.}
     {1em}{#1}
 \titlespacing{\subsubsection}
     {1.5cm} %left
@@ -88,7 +83,7 @@
 
 \titleformat{\paragraph}[runin]
     {\normalfont}
-    {\theparagraph}
+    {\theparagraph.}
     {1em}{#1}
 \titlespacing{\paragraph}
     {1.5cm} %left
@@ -99,6 +94,12 @@
 % Оглавление
 \usepackage{tocloft}
 \usepackage{etoolbox}
+
+\renewcommand{\cftchapaftersnum}{.}
+\renewcommand{\cftsecaftersnum}{.}
+\renewcommand{\cftsubsecaftersnum}{.}
+\renewcommand{\cftsubsubsecaftersnum}{.}
+\renewcommand{\cftparaaftersnum}{.}
 
 \renewcommand{\cftchappagefont}{\mdseries}
 \renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
