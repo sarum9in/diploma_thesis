@@ -1,0 +1,31 @@
+\chapter{Программный интерфейс}
+
+\section{Интерфейс архива}
+Доступ к архиву осуществляется посредством HTTP~POST запросов.
+Ответы возвращаются в виде сериализованных структур Protocol Buffers.
+
+\lstinputlisting[title=bacs/archive/pb/problem.proto]{../bunsan/bacs/archive/include/bacs/archive/pb/problem.proto}
+
+\section{Интерфейс сервиса условий}
+Формат запроса представлен на языке Protocol Buffers.
+\lstinputlisting[title=bacs/statement\_provider/request.proto]{../bunsan/bacs/statement_provider/include/bacs/statement_provider/request.proto}
+
+\section{Интерфейс тестера}
+В зависимости от типа задачи структура запроса может различаться.
+Запрос описывается сообщением Task. Результат сообщением Result.
+
+\subsection{Общие описания}
+\lstinputlisting[title=bacs/process.proto]{../bunsan/bacs/common/include/bacs/process.proto}
+\lstinputlisting[title=bacs/file.proto]{../bunsan/bacs/common/include/bacs/file.proto}
+\lstinputlisting[title=bacs/callback.proto]{../bunsan/bacs/common/include/bacs/callback.proto}
+
+\subsection{Описание абстрактной задачи}
+\lstinputlisting[title=bacs/problem/problem.proto]{../bunsan/bacs/problem/include/bacs/problem/problem.proto}
+
+\subsection{Описание задачи типа single}
+\lstinputlisting[title=bacs/problem/single/intermediate.proto]{../bunsan/bacs/problem_plugins/single/include/bacs/problem/single/intermediate.proto}
+\lstinputlisting[title=bacs/problem/single/result.proto]{../bunsan/bacs/problem_plugins/single/include/bacs/problem/single/result.proto}
+\lstinputlisting[title=bacs/problem/single/problem.proto]{../bunsan/bacs/problem_plugins/single/include/bacs/problem/single/problem.proto}
+\lstinputlisting[title=bacs/problem/single/task.proto]{../bunsan/bacs/problem_plugins/single/include/bacs/problem/single/task.proto}
+\lstinputlisting[title=bacs/problem/single/settings.proto]{../bunsan/bacs/problem_plugins/single/include/bacs/problem/single/settings.proto}
+\lstinputlisting[title=bacs/problem/single/testing.proto]{../bunsan/bacs/problem_plugins/single/include/bacs/problem/single/testing.proto}
