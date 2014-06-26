@@ -2,5 +2,12 @@
 
 \begin{appendices}
 \renewcommand*{\thechapter}{\arabic{chapter}}
+
+\titleformat{\chapter}[hang]
+    {\normalfont\raggedleft}
+    {\MakeUppercase{\appendixname} \thechapter}
+    {1em}
+    {\\*\centering\uppercase{#1}}
+
 \input rs/sourcecode.sh
 \end{appendices}
