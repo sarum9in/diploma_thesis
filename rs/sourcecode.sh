@@ -72,7 +72,7 @@ secp bacs::archive bunsan/bacs/archive
 
 secp bacs::statement_provider bunsan/bacs/statement_provider
 
-secp bacs::problem bunsan/bacs/problem
+secp bacs::problem bunsan/bacs/common bunsan/bacs/problem
 
 secp bacs::problem::single bunsan/bacs/problem_plugins/single
 
