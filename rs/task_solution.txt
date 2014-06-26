@@ -1,0 +1,19 @@
+solution {
+  source: "#include <iostream>\r\n\r\nint main()\r\n{\r\n    int a, b;\r\n    std::cin >> a >> b;\r\n    std::cout << a + b << std::endl;\r\n}\r\n"
+  build_settings {
+    builder {
+      type: "gcc"
+      argument: "lang=c++"
+      argument: "optimize=2"
+      argument: "std=c++11"
+      argument: "fno-stack-limit"
+    }
+    resource_limits {
+      time_limit_millis: 60000
+      memory_limit_bytes: 1610612736
+      output_limit_bytes: 536870912
+      number_of_processes: 32
+      real_time_limit_millis: 120000
+    }
+  }
+}

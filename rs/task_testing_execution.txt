@@ -1,0 +1,18 @@
+execution {
+  redirection {
+    stream: STDIN
+    file_id: "stdin"
+  }
+  redirection {
+    stream: STDOUT
+    file_id: "stdout"
+  }
+  redirection {
+    stream: STDIN
+    file_id: "stdin"
+  }
+  redirection {
+    stream: STDOUT
+    file_id: "stdout"
+  }
+}

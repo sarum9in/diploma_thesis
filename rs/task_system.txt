@@ -1,0 +1,9 @@
+hash: "\236\333\375\251"
+callbacks {
+  result {
+    type: "xmlrpc"
+    argument: "http://scr.bacs.cs.istu.ru/SubmitCallbackReceiver"
+    argument: "FinalResult"
+    argument: "1131"
+  }
+}

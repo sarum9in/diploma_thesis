@@ -1,0 +1,23 @@
+testing {
+  test_group {
+    id: ""
+    settings {
+      run {
+        order: NUMERIC
+        algorithm: WHILE_NOT_FAIL
+      }
+      process {
+        resource_limits {
+          time_limit_millis: 2000
+          memory_limit_bytes: 67108864
+        }
+        // ...
+      }
+    }
+    test_set {
+      wildcard {
+        value: "*"
+      }
+    }
+  }
+}

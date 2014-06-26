@@ -1,0 +1,10 @@
+file {
+  id: "stdin"
+  permission: READ
+  init: "in"
+}
+file {
+  id: "stdout"
+  permission: READ
+  permission: WRITE
+}
