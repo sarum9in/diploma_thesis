@@ -1,0 +1,22 @@
+testing_result {
+  test_group {
+    id: ""
+    executed: true
+    test {
+      id: "0"
+      status: OK
+      execution {
+        status: OK
+        exit_status: 0
+        resource_usage {
+          time_usage_millis: 1
+          memory_usage_bytes: 262144
+        }
+      }
+      judge {
+        status: OK
+      }
+    }
+    // ...
+  }
+}

@@ -1,0 +1,14 @@
+system {
+  status: OK
+}
+build {
+  execution {
+    status: OK
+    exit_status: 0
+    resource_usage {
+      time_usage_millis: 406
+      memory_usage_bytes: 31186944
+    }
+  }
+  output: ""
+}
