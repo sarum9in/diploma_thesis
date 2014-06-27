@@ -27,6 +27,8 @@
 
 \usepackage{graphicx}
 
+\usepackage{dirtree}
+
 \usepackage{listings}
 \lstset{ %
 language=C++,                   % the language of the code
@@ -166,6 +168,22 @@ morekeywords={*,...}            % if you want to add more keywords to the set
             \item Лёгкость добавления поддержки новых форматов
             \item Преобразование в универсальный внутренний формат
         \end{itemize}
+        \begin{block}{simple0}
+            \dirtree{%
+                .1 /.
+                .2 checker/.
+                .3 config.ini.
+                .3 checker.cpp.
+                .2 statement/.
+                .3 pdf\_ru.ini.
+                .3 russian.tex.
+                .2 tests/.
+                .3 1.in.
+                .3 1.out.
+                .2 format.
+                .2 config.ini.
+            }
+        \end{block}
     \end{sframe}
 
     \begin{sframe}{Сервис условий}{bacsstatementprovider}
